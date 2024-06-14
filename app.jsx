@@ -1,7 +1,16 @@
-const React = require('react')
+const React = require("react");
 
 const App = () => {
-  return <div> this is a classic SSR App </div>;
+  return (
+    <div
+      onClick={() => {
+        console.log("111");
+      }}
+    >
+      {" "}
+      this is a classic SSR App{" "}
+    </div>
+  );
 };
 
 module.exports = App;
