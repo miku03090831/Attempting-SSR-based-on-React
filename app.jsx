@@ -1,5 +1,4 @@
-const React = require("react");
-
+import React from "react";
 const App = () => {
   return (
     <div
@@ -7,10 +6,8 @@ const App = () => {
         console.log("111");
       }}
     >
-      {" "}
-      this is a classic SSR App{" "}
+      this is a classic SSR App
     </div>
   );
 };
-
-module.exports = App;
+export default App;

@@ -1,12 +1,13 @@
 const express = require("express");
-const App = require("./app.jsx");
+import App from "./app.jsx"
 const ReactDom = require("react-dom/server");
-const React = require('react')
+const React = require("react");
 
 const server = express();
-server.use(express.static('.'))
+server.use(express.static("."));
 server.get("/", function (req, res, next) {
   const elementString = ReactDom.renderToString(<App />);
+  console.log(elementString)
   const html = `<!DOCTYPE html>
   <html lang="en">
   <head>
@@ -14,12 +15,10 @@ server.get("/", function (req, res, next) {
       <title>my react ssr</title>
   </head>
   <body>
-      <div id="root">
-         ${elementString}
-      </div>
+      <div id="root">${elementString}</div>
+      <script type="module" src="./dist/index.bundle.js"></script>
   </body>
-  </html>
-  <script type="text/javascript"  src="index.js"></script>`;
+  </html>`;
   res.send(html);
 });
 
