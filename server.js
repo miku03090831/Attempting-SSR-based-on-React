@@ -1,13 +1,30 @@
 const express = require("express");
-import App from "./app.jsx"
+import App from "./app.jsx";
 const ReactDom = require("react-dom/server");
 const React = require("react");
 
 const server = express();
 server.use(express.static("."));
-server.get("/", function (req, res, next) {
-  const elementString = ReactDom.renderToString(<App />);
-  console.log(elementString)
+// server.get("/", function (req, res, next) {
+//   const elementString = ReactDom.renderToString(<App />);
+//   console.log(elementString)
+//   const html = `<!DOCTYPE html>
+//   <html lang="en">
+//   <head>
+//       <meta charset="UTF-8">
+//       <title>my react ssr</title>
+//   </head>
+//   <body>
+//       <div id="root">${elementString}</div>
+//       <script type="module" src="./dist/index.bundle.js"></script>
+//   </body>
+//   </html>`;
+//   res.send(html);
+// });
+
+server.get("*", async function (req, res, next) {
+  const { default: Page } = await import(`./app${req.params["0"]}/page`);
+  const pageString = ReactDom.renderToString(<Page />);
   const html = `<!DOCTYPE html>
   <html lang="en">
   <head>
@@ -15,8 +32,7 @@ server.get("/", function (req, res, next) {
       <title>my react ssr</title>
   </head>
   <body>
-      <div id="root">${elementString}</div>
-      <script type="module" src="./dist/index.bundle.js"></script>
+      <div id="root">${pageString}</div>
   </body>
   </html>`;
   res.send(html);
