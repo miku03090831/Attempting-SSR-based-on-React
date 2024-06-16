@@ -1,7 +1,10 @@
 module.exports = {
   target: "node",
   entry: "./server.js",
-  mode: 'development',
+  output: {
+    filename: "server.bundle.js",
+  },
+  mode: "development",
   module: {
     rules: [
       {

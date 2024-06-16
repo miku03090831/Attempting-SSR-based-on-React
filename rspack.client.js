@@ -1,11 +1,8 @@
 module.exports = {
-  entry: {
-    index: "./index.js",
-    app: "./app.jsx",
-  },
-  mode: 'development',
+  entry: "./index.js",
+  mode: "development",
   output: {
-    filename: "[name].bundle.js",
+    filename: "index.bundle.js",
   },
   module: {
     rules: [

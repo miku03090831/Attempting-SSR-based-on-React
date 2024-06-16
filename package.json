@@ -1,6 +1,6 @@
 {
 	"scripts": {
-		"server": "rm -rf dist && pnpm run build && pnpm run build:server && node ./dist/main.js",
+		"server": "rm -rf dist && pnpm run build && pnpm run build:server && node ./dist/server.bundle.js",
 		"build": "rspack build -c rspack.client.js",
 		"build:server": "rspack build -c rspack.server.js"
 	},
