@@ -1,6 +1,8 @@
+const path = require("path");
+
 module.exports = {
   target: "node",
-  entry: "./server.js",
+  entry: "./src/server.js",
   output: {
     filename: "server.bundle.js",
   },
@@ -31,5 +33,8 @@ module.exports = {
   },
   resolve: {
     extensions: [".js", ".json", ".wasm", ".jsx"],
+    alias: {
+      "@": path.resolve(__dirname, "./src"),
+    },
   },
 };

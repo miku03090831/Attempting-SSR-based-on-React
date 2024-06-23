@@ -1,4 +1,5 @@
 const express = require("express");
+const pageRouter = require('./router/createPageRouter')
 import { getPage } from "./utils/router";
 import { renderToString } from "react-dom/server";
 import React from "react";

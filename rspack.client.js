@@ -1,5 +1,7 @@
+const path = require("path");
+
 module.exports = {
-  entry: "./index.js",
+  entry: "./src/index.js",
   mode: "development",
   output: {
     filename: "index.bundle.js",
@@ -30,5 +32,8 @@ module.exports = {
   },
   resolve: {
     extensions: [".js", ".json", ".wasm", ".jsx"],
+    alias: {
+      "@": path.resolve(__dirname, "./src"),
+    },
   },
 };
