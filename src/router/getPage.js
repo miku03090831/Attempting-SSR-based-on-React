@@ -2,14 +2,16 @@
  *
  * @param {string} [path]
  */
-export const getPage = async (path) => {
+const getPage = async (path) => {
   let Page;
   if (typeof window === "undefined") {
     // in Node.js environment
     Page = (await import(`../app${path}/page`)).default;
-  }else{
+  } else {
     // in browser environment
-    Page = (await import(`../app${window.location.pathname}/page`)).default
+    Page = (await import(`../app${window.location.pathname}/page`)).default;
   }
-  return Page
+  return Page;
 };
+
+module.exports = { getPage };

@@ -1,5 +1,5 @@
 import { hydrateRoot } from "react-dom/client";
-import { getPage } from "./utils/router.js";
+import { getPage } from "./router/getPage.js";
 
 const hydrateAtClient = async ()=>{
     const Page = await getPage()
