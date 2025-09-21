@@ -13,7 +13,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(jsx|js)$/,
+        test: /\.(tsx|ts|jsx|js)$/,
         exclude: [/[\\/]node_modules[\\/]/],
         loader: "builtin:swc-loader",
         options: {
@@ -35,7 +35,7 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: [".js", ".json", ".wasm", ".jsx"],
+    extensions: [".tsx", ".ts", ".jsx", ".js", ".json", ".wasm"],
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
