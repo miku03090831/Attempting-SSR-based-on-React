@@ -1,7 +1,7 @@
 {
 	"type": "module",
 	"scripts": {
-		"server": "rimraf dist && pnpm run build && node ./dist/server.bundle.cjs",
+		"server": "rimraf dist && pnpm run build && node ./dist/server.bundle.mjs",
 		"build": "pnpm run build:client && pnpm run build:server",
 		"build:client": "rspack build -c rspack.client.cjs",
 		"build:server": "rspack build -c rspack.server.cjs"
