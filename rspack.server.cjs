@@ -1,15 +1,26 @@
 const path = require("path");
 
 module.exports = {
-  entry: "./src/index.js",
-  mode: "development",
+  target: "node",
+  entry: "./src/server.js",
   output: {
-    filename: "index.bundle.js",
+    filename: "server.bundle.cjs",
+    libraryTarget: "commonjs2",
   },
+  experiments: {
+    // 启用 barrel 文件优化（新版本功能）
+    lazyBarrel: true,
+  },
+  externalsType: "commonjs",
+  externals: {
+    // 排除所有 node_modules，让 Node.js 运行时处理
+    express: "express",
+  },
+  mode: "development",
   module: {
     rules: [
       {
-        test: /\.(jsx|js)$/,
+        test: /\.(js|jsx)$/,
         exclude: [/[\\/]node_modules[\\/]/],
         loader: "builtin:swc-loader",
         options: {

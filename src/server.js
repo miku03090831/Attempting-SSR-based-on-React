@@ -1,5 +1,5 @@
-const express = require("express");
-const pageRouter = require('./router/createPageRouter').default
+import express from "express";
+import pageRouter from './router/createPageRouter.js';
 
 const server = express();
 server.use(express.static("."));

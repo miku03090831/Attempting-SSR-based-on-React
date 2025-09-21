@@ -1,8 +1,10 @@
 {
+	"type": "module",
 	"scripts": {
-		"server": "rm -rf dist && pnpm run build && pnpm run build:server && node ./dist/server.bundle.js",
-		"build": "rspack build -c rspack.client.js",
-		"build:server": "rspack build -c rspack.server.js"
+		"server": "rimraf dist && pnpm run build && node ./dist/server.bundle.cjs",
+		"build": "pnpm run build:client && pnpm run build:server",
+		"build:client": "rspack build -c rspack.client.cjs",
+		"build:server": "rspack build -c rspack.server.cjs"
 	},
 	"dependencies": {
 		"express": "^4.19.2",
@@ -10,7 +12,8 @@
 		"react-dom": "^18.3.1"
 	},
 	"devDependencies": {
-		"@rspack/cli": "^0.7.3",
-		"@rspack/core": "^0.7.3"
+		"@rspack/cli": "^1.5.5",
+		"@rspack/core": "^1.5.5",
+		"rimraf": "^5.0.10"
 	}
 }

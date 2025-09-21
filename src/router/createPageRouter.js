@@ -1,7 +1,7 @@
-const express = require("express");
-const fs = require("fs");
-const path = require("path");
-const { getPage } = require("./getPage");
+import express from "express";
+import fs from "fs";
+import path from "path";
+import { getPage } from "./getPage.js";
 import { renderToString } from "react-dom/server";
 import React from "react";
 

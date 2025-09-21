@@ -1,16 +1,19 @@
 const path = require("path");
 
 module.exports = {
-  target: "node",
-  entry: "./src/server.js",
-  output: {
-    filename: "server.bundle.js",
-  },
+  entry: "./src/index.js",
   mode: "development",
+  output: {
+    filename: "index.bundle.js",
+  },
+  experiments: {
+    // 启用 barrel 文件优化（新版本功能）
+    lazyBarrel: true,
+  },
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.(jsx|js)$/,
         exclude: [/[\\/]node_modules[\\/]/],
         loader: "builtin:swc-loader",
         options: {
